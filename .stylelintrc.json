@@ -1,0 +1,28 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-scss",
+  "plugins": ["stylelint-scss"],
+  "defaultSeverity": "warning",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "import-notation": [
+      "url",
+      {
+        "severity": "warning"
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z]+(-[a-z]+)*(__[a-z]+(-[a-z]+)*)?(--[a-z]+(-[a-z]+)*)?$",
+      {
+        "resolveNestedSelectors": true
+      }
+    ]
+  }
+}

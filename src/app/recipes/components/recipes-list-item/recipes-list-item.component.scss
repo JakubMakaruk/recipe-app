@@ -1,0 +1,37 @@
+.recipe-item {
+  position: relative;
+  height: 180px;
+  width: 150px;
+
+  border: 2px solid #fff;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  &__photo {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+
+    filter: brightness(60%);
+  }
+
+  &__title {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    color: #fff;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    z-index: 10;
+  }
+}
