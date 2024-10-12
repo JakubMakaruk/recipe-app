@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const googleLogoURL =
   'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
@@ -28,11 +28,8 @@ export class LoginPanelComponent implements OnInit {
     private _matIconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
   ) {
-    this.loginForm = new FormGroup({
-      email: new FormControl<string>('', [
-        // Validators.required,
-        // Validators.email,
-      ]),
+    this.loginForm = this._fb.group({
+      email: new FormControl<string>('', []),
       password: new FormControl<string>(''),
     });
 
