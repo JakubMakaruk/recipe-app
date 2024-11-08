@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PreloadModulesStrategy} from './preload-modules.strategy';
-import {LandingPageComponent} from './landing-page/landing-page.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PreloadModulesStrategy } from './preload-modules.strategy';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
