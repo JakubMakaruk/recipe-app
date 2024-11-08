@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule,} from '@angular/forms';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 const googleLogoURL =
   'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
@@ -11,6 +14,14 @@ const googleLogoURL =
   templateUrl: './login-panel.component.html',
   styleUrls: ['./login-panel.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+  standalone: true,
 })
 export class LoginPanelComponent implements OnInit {
   loginForm: FormGroup<LoginForm>;

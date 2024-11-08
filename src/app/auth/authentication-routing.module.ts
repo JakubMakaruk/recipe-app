@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginPanelComponent} from './login-panel/login-panel.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginPanelComponent,
+    loadComponent: () =>
+      import('./components/login-panel/login-panel.component').then(
+        (c) => c.LoginPanelComponent,
+      ),
   },
 ];
 

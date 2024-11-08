@@ -1,0 +1,5 @@
+@mixin generate-css-variables($color-map) {
+  @each $key, $value in $color-map {
+    --#{$key}: #{$value};
+  }
+}

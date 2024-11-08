@@ -1,0 +1,22 @@
+@import "@angular/material/theming";
+
+$primary: mat-palette($mat-teal);
+$accent: mat-palette($mat-orange);
+$warn: mat-palette($mat-red);
+
+$custom-colors-dark: (
+  sidenav-background-color: #333333,
+);
+
+$theme: mat-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    custom: $custom-colors-dark,
+  )
+);
+
+@include angular-material-theme($theme);

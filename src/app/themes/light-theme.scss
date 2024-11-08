@@ -1,0 +1,38 @@
+@use "@angular/material/theming";
+@use "./mixins" as mixins;
+
+$my-primary-color: #4caf50;
+$my-accent-color: #ff9800;
+$my-warn-color: #f44336;
+$my-background-color: #cccccc;
+
+$custom-colors-light: (
+  default-background-color: #e3e3e3,
+);
+
+$theme: mat-light-theme(
+  (
+    color: (
+      primary: (
+        500: $my-primary-color,
+        default: $my-primary-color,
+      ),
+      accent: (
+        500: $my-accent-color,
+        default: $my-accent-color,
+      ),
+      warn: (
+        500: $my-warn-color,
+        default: $my-warn-color,
+      ),
+      background: (
+        default: $my-background-color,
+      ),
+    ),
+    custom: $custom-colors-light,
+  )
+);
+
+:root {
+  @include mixins.generate-css-variables($custom-colors-light);
+}
