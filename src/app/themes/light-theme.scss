@@ -1,4 +1,4 @@
-@use "@angular/material/theming";
+@use "@angular/material" as mat;
 @use "./mixins" as mixins;
 
 $my-primary-color: #4caf50;
@@ -6,28 +6,20 @@ $my-accent-color: #ff9800;
 $my-warn-color: #f44336;
 $my-background-color: #cccccc;
 
+$primary: mat.m2-define-palette(mat.$m2-green-palette);
+$accent: mat.m2-define-palette(mat.$m2-indigo-palette);
+$warn: mat.m2-define-palette(mat.$m2-red-palette);
+
 $custom-colors-light: (
   default-background-color: #e3e3e3,
 );
 
-$theme: mat-light-theme(
+$light-theme: mat.m2-define-light-theme(
   (
     color: (
-      primary: (
-        500: $my-primary-color,
-        default: $my-primary-color,
-      ),
-      accent: (
-        500: $my-accent-color,
-        default: $my-accent-color,
-      ),
-      warn: (
-        500: $my-warn-color,
-        default: $my-warn-color,
-      ),
-      background: (
-        default: $my-background-color,
-      ),
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
     ),
     custom: $custom-colors-light,
   )

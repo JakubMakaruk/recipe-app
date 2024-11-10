@@ -3,11 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     loadComponent: () =>
-      import('./components/login-panel/login-panel.component').then(
-        (c) => c.LoginPanelComponent,
-      ),
+      import('./auth/auth.component').then((c) => c.AuthComponent),
   },
 ];
 
