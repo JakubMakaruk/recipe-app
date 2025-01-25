@@ -18,10 +18,10 @@
     </div>
 
     <div class="auth-actions">
-      <button mat-flat-button color="primary" class="auth-actions__item">
+      <button mat-flat-button color="primary" class="auth-actions__item" [routerLink]="'login'">
         {{ "AUTH_LOGIN" | translate }}
       </button>
-      <button mat-flat-button color="primary" class="auth-actions__item">
+      <button mat-flat-button color="primary" class="auth-actions__item" [routerLink]="'register'">
         {{ "AUTH_REGISTER" | translate }}
       </button>
     </div>

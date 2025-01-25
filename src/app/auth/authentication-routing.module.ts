@@ -7,6 +7,10 @@ const routes: Routes = [
     loadComponent: () =>
       import('./auth/auth.component').then((c) => c.AuthComponent),
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login-panel/login-panel.component').then((c) => c.LoginPanelComponent),
+  }
 ];
 
 @NgModule({

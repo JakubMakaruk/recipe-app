@@ -1,0 +1,21 @@
+<mat-form-field class="login-panel__form-input" appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <mat-icon *ngIf="icon" matPrefix>{{ icon }}</mat-icon>
+  <input
+    matInput
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    [disabled]="isDisabled"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  />
+
+  <button *ngIf="isPasswordField" mat-icon-button matSuffix (click)="togglePassswordVisibility()">
+    <mat-icon>{{ passwordVisibilityIcon }}</mat-icon>
+  </button>
+
+  <mat-error *ngIf="controlContainer?.invalid && controlContainer?.touched">
+    {{ getErrorMessage() }}
+  </mat-error>
+</mat-form-field>

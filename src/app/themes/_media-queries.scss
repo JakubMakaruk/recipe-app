@@ -1,0 +1,11 @@
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 1024px
+);
+
+@mixin respond-to($size) {
+  @media (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

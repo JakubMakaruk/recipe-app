@@ -1,10 +1,12 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule,} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {NavigateBackComponent} from "../../../shared/components/navigate-back/navigate-back.component";
+import {InputComponent} from "../../../shared/components/input/input.component";
 
 const googleLogoURL =
   'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
@@ -20,6 +22,9 @@ const googleLogoURL =
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    NavigateBackComponent,
+    FormsModule,
+    InputComponent,
   ],
   standalone: true,
 })
@@ -40,8 +45,8 @@ export class LoginPanelComponent implements OnInit {
     private _sanitizer: DomSanitizer,
   ) {
     this.loginForm = this._fb.group({
-      email: new FormControl<string>('', []),
-      password: new FormControl<string>(''),
+      email: new FormControl<string>('', [Validators.required, Validators.email]),
+      password: new FormControl<string>('', [Validators.required]),
     });
 
     this._matIconRegistry.addSvgIcon(
@@ -52,6 +57,17 @@ export class LoginPanelComponent implements OnInit {
 
   ngOnInit() {
     console.log('LOGIN PANEL INITIALIZATION');
+  }
+
+  login(): void {
+
+  }
+
+  printForm(): void {
+    console.log('form')
+    console.log('invalid: ', this.loginForm.invalid)
+    console.log(this.loginForm);
+    this.loginForm.markAllAsTouched()
   }
 }
 
