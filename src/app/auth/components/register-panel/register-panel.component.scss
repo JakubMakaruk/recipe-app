@@ -1,6 +1,7 @@
 @use './app/themes/mixins';
 
-.login-panel {
+
+.register-panel {
   height: 100%;
   padding: 20px;
   display: flex;
@@ -29,21 +30,7 @@
     @include mixins.standard-button-properties();
   }
 
-  &__others {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__others-button-icon {
-    @include mixins.icon-size(25);
-  }
-
-  &__others-login {
-    text-align: center;
-  }
-
-  &__others-register {
+  &__login-link {
     @include mixins.link;
   }
 }

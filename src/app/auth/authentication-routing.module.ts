@@ -3,13 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadComponent: () =>
-      import('./auth/auth.component').then((c) => c.AuthComponent),
-  },
-  {
     path: 'login',
     loadComponent: () => import('./components/login-panel/login-panel.component').then((c) => c.LoginPanelComponent),
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./components/register-panel/register-panel.component').then((c) => c.RegisterPanelComponent),
   }
 ];
 

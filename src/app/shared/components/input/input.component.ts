@@ -36,12 +36,13 @@ import {MatIconButton} from "@angular/material/button";
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-  @Input() label: string = '';
+  @Input() label = '';
   @Input() icon!: string;
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
+  @Input() type = 'text';
+  @Input() placeholder = '';
+  @Input() passwordToggleVisible = false;
 
-  value: string = '';
+  value = '';
   isDisabled = false;
   isPasswordVisible = false;
 
@@ -52,15 +53,16 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   get isPasswordField(): boolean {
-    return this.type === 'password';
+    return this.passwordToggleVisible;
   }
 
   get passwordVisibilityIcon(): string {
     return this.isPasswordVisible ? 'visibility_off' : 'visibility';
   }
 
-  togglePassswordVisibility(): void {
+  togglePasswordVisibility(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
+    this.type = this.isPasswordVisible ? 'text' : 'password';
   }
 
   getErrorMessage(): string {

@@ -1,5 +1,24 @@
+@use '@angular/material' as mat;
+@use 'vars';
+
 @mixin generate-css-variables($color-map) {
   @each $key, $value in $color-map {
     --#{$key}: #{$value};
   }
+}
+
+@mixin standard-button-properties() {
+  height: vars.$button-height-standard;
+  border-radius: vars.$button-border-radius-standard;
+}
+
+@mixin icon-size($value) {
+  height: #{$value}px !important;
+  width: #{$value}px !important;
+}
+
+@mixin link {
+  font-weight: 700;
+  color: var(--link-color);
+  text-decoration: none;
 }

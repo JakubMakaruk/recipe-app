@@ -1,0 +1,56 @@
+<app-navigate-back></app-navigate-back>
+
+<div class="register-panel">
+  <div class="register-panel__logo-container">
+    <img class="register-panel__logo" src="../../assets/logo_dark.png" />
+  </div>
+
+  <form class="register-panel__form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <app-input
+      formControlName="firstName"
+      label="Firstname"
+      type="text"
+    ></app-input>
+
+    <app-input
+      formControlName="lastName"
+      label="Lastname"
+      type="text"
+    ></app-input>
+
+    <app-input
+      formControlName="email"
+      label="Email"
+      icon="person_outline"
+      type="email"
+    ></app-input>
+
+    <div formGroupName="password">
+      <app-input
+        formControlName="password"
+        label="Password"
+        icon="lock_open"
+        type="password"
+        [passwordToggleVisible]="true">
+      </app-input>
+
+      <app-input
+        formControlName="confirmPassword"
+        label="Confirm Password"
+        icon="lock"
+        type="password"
+        [passwordToggleVisible]="true">
+      </app-input>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="register-panel__form-submit">
+      {{ 'SHARED_SUBMIT' | translate }}
+    </button>
+  </form>
+
+  <h5>{{ 'AUTH_LOGIN_PREFIX_TEXT' | translate }}<a class="register-panel__login-link" [routerLink]="'../login'">{{ 'AUTH_BACK_TO_LOGIN_PAGE' | translate }}</a></h5>
+</div>

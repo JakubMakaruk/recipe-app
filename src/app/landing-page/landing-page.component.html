@@ -1,18 +1,20 @@
-<div class="landing-page__content">
+<div class="landing-page">
   <div class="landing-page__logo-container">
     <img class="landing-page__logo" src="../../assets/logo_dark.png" />
   </div>
 
-  <p class="landing-page__description">
-    Discover more than 100 food recipes in your hands and cooking it!
-  </p>
-  <div class="landing-page__actions">
-    <button mat-flat-button color="primary" [routerLink]="'auth/login'">
-      Log in
-    </button>
-    <button mat-flat-button>Sign up</button>
-    <button mat-button color="accent" [routerLink]="'recipes'">
-      Discover recipes without login
-    </button>
+  <div class="landing-page__content">
+    <p class="landing-page__description">
+      {{ 'LANDING_PAGE_HEADER_TEXT' | translate }}
+    </p>
+    <div class="landing-page__actions">
+      <button mat-flat-button color="primary" class="landing-page__action" [routerLink]="'auth/login'">
+        {{ 'AUTH_LOGIN' | translate }}
+      </button>
+      <button mat-flat-button class="landing-page__action" [routerLink]="'auth/register'">{{ 'AUTH_REGISTER' | translate }}</button>
+      <button mat-button color="accent" class="landing-page__action" [routerLink]="'recipes'">
+        {{ 'LANDING_PAGE_DISCOVER_BUTTON_TEXT' | translate }}
+      </button>
+    </div>
   </div>
 </div>

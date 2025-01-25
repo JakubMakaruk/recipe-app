@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {noop} from 'rxjs';
 import {MatIcon} from "@angular/material/icon";
 import {MatFabButton} from "@angular/material/button";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-navigate-back',
@@ -15,9 +16,13 @@ import {MatFabButton} from "@angular/material/button";
   ]
 })
 export class NavigateBackComponent {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _location: Location) {}
 
   navigateBack() {
-    this._router.navigate(['..']).then(noop);
+    if (window.history.length > 1) {
+      this._location.back();
+    } else {
+      this._router.navigate(['..']).then();
+    }
   }
 }

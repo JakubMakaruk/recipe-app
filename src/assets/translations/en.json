@@ -1,4 +1,14 @@
 {
+  "LANDING_PAGE_HEADER_TEXT": "Discover more than 100 food recipes in your hands and cooking it!",
+  "LANDING_PAGE_DISCOVER_BUTTON_TEXT": "Discover recipes without login",
+
   "AUTH_LOGIN": "Login",
-  "AUTH_REGISTER": "Register"
+  "AUTH_REGISTER": "Register",
+  "AUTH_LOGIN_WITH": "Login with {{name}}",
+  "AUTH_REGISTER_NOW": "Register now!",
+  "AUTH_BACK_TO_LOGIN_PAGE": "Back to login panel!",
+  "AUTH_REGISTER_PREFIX_TEXT": "Don't have an account? ",
+  "AUTH_LOGIN_PREFIX_TEXT": "Already have an account? ",
+
+  "SHARED_SUBMIT": "Submit"
 }

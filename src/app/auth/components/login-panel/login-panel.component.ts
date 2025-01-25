@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -7,15 +7,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {NavigateBackComponent} from "../../../shared/components/navigate-back/navigate-back.component";
 import {InputComponent} from "../../../shared/components/input/input.component";
-
-const googleLogoURL =
-  'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
+import {TranslatePipe} from "@ngx-translate/core";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login-panel',
   templateUrl: './login-panel.component.html',
   styleUrls: ['./login-panel.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   imports: [
     MatIconModule,
     MatButtonModule,
@@ -25,19 +23,13 @@ const googleLogoURL =
     NavigateBackComponent,
     FormsModule,
     InputComponent,
+    TranslatePipe,
+    RouterLink,
   ],
   standalone: true,
 })
 export class LoginPanelComponent implements OnInit {
   loginForm: FormGroup<LoginForm>;
-
-  get emailFormControl(): FormControl {
-    return this.loginForm.controls.email;
-  }
-
-  get passwordFormControl(): FormControl {
-    return this.loginForm.controls.password;
-  }
 
   constructor(
     private _fb: FormBuilder,
@@ -51,7 +43,11 @@ export class LoginPanelComponent implements OnInit {
 
     this._matIconRegistry.addSvgIcon(
       'google',
-      this._sanitizer.bypassSecurityTrustResourceUrl(googleLogoURL),
+      this._sanitizer.bypassSecurityTrustResourceUrl('./assets/icons/svg/google.svg'),
+    );
+    this._matIconRegistry.addSvgIcon(
+      'facebook',
+      this._sanitizer.bypassSecurityTrustResourceUrl('./assets/icons/svg/facebook.svg'),
     );
   }
 

@@ -1,24 +1,27 @@
-:host {
-  position: relative;
-}
+@use './app/themes/vars' as vars;
+@use './app/themes/mixins' as mixins;
 
 .landing-page {
-  &__content {
-    height: 100%;
-    padding: 12px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 
   &__logo-container {
     width: 100%;
+    max-width: 300px;
   }
 
   &__logo {
     width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 
   &__description {
@@ -31,10 +34,10 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 80%;
+    width: 100%;
+  }
 
-    button {
-      border-radius: 12px;
-    }
+  &__action {
+    @include mixins.standard-button-properties();
   }
 }
