@@ -1,8 +1,6 @@
 @use "@angular/material" as mat;
-@import "./app/themes/colors";
-@import "./app/themes/light-theme";
-@import "./app/themes/dark-theme";
-@import "vars.scss";
+@import './app/themes/light-theme';
+@import './app/themes/dark-theme';
 
 @include mat.core();
 
@@ -21,6 +19,7 @@ html {
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--default-background-color);
 }
 
 * {

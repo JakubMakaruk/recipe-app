@@ -1,18 +1,11 @@
-@use "@angular/material" as mat;
-@use "./mixins" as mixins;
+@use '@angular/material' as mat;
+@use './mixins' as mixins;
+@use './palettes' as palettes;
+@use './dark-theme-colors' as colors;
 
-$my-primary-color: #4caf50;
-$my-accent-color: #ff9800;
-$my-warn-color: #f44336;
-$my-background-color: #cccccc;
-
-$primary: mat.m2-define-palette(mat.$m2-teal-palette);
-$accent: mat.m2-define-palette(mat.$m2-teal-palette);
-$warn: mat.m2-define-palette(mat.$m2-teal-palette);
-
-$custom-colors-light: (
-  default-background-color: #333333,
-);
+$primary: mat.m2-define-palette(palettes.$dark-green-palette);
+$accent: mat.m2-define-palette(palettes.$orange-accent-palette);
+$warn: mat.m2-define-palette(palettes.$yellow-secondary-palette);
 
 $dark-theme: mat.m2-define-dark-theme(
   (
@@ -21,10 +14,10 @@ $dark-theme: mat.m2-define-dark-theme(
       accent: $accent,
       warn: $warn,
     ),
-    custom: $custom-colors-light,
+    custom: colors.$custom-colors-dark,
   )
 );
 
 .dark-theme {
-  @include mixins.generate-css-variables($custom-colors-light);
+  @include mixins.generate-css-variables(colors.$custom-colors-dark);
 }

@@ -7,12 +7,10 @@
   @include mat.all-component-themes($theme);
 }
 
-// Domyślny motyw (jasny)
 :root {
   @include angular-material-theme(light.$light-theme);
 }
 
-// Ciemny motyw, gdy dodana jest klasa `.dark-theme`
 .dark-theme {
   @include angular-material-theme(dark.$dark-theme);
 }
