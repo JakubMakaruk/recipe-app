@@ -5,15 +5,31 @@
 
   <div class="landing-page__content">
     <p class="landing-page__description">
-      {{ 'LANDING_PAGE_HEADER_TEXT' | translate }}
+      {{ "LANDING_PAGE_HEADER_TEXT" | translate }}
     </p>
     <div class="landing-page__actions">
-      <button mat-flat-button color="primary" class="landing-page__action" [routerLink]="'auth/login'">
-        {{ 'AUTH_LOGIN' | translate }}
+      <button
+        mat-flat-button
+        color="primary"
+        class="landing-page__action"
+        [routerLink]="'auth/login'"
+      >
+        {{ "AUTH_LOGIN" | translate }}
       </button>
-      <button mat-flat-button class="landing-page__action" [routerLink]="'auth/register'">{{ 'AUTH_REGISTER' | translate }}</button>
-      <button mat-button color="accent" class="landing-page__action" [routerLink]="'recipes'">
-        {{ 'LANDING_PAGE_DISCOVER_BUTTON_TEXT' | translate }}
+      <button
+        mat-flat-button
+        class="landing-page__action"
+        [routerLink]="'auth/register'"
+      >
+        {{ "AUTH_REGISTER" | translate }}
+      </button>
+      <button
+        mat-button
+        color="accent"
+        class="landing-page__action"
+        [routerLink]="'recipes'"
+      >
+        {{ "LANDING_PAGE_DISCOVER_BUTTON_TEXT" | translate }}
       </button>
     </div>
   </div>

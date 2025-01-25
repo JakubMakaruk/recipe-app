@@ -1,14 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {NavigateBackComponent} from "../../../shared/components/navigate-back/navigate-back.component";
-import {InputComponent} from "../../../shared/components/input/input.component";
-import {TranslatePipe} from "@ngx-translate/core";
-import {RouterLink} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NavigateBackComponent } from '../../../shared/components/navigate-back/navigate-back.component';
+import { InputComponent } from '../../../shared/components/input/input.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-panel',
@@ -37,17 +44,24 @@ export class LoginPanelComponent implements OnInit {
     private _sanitizer: DomSanitizer,
   ) {
     this.loginForm = this._fb.group({
-      email: new FormControl<string>('', [Validators.required, Validators.email]),
+      email: new FormControl<string>('', [
+        Validators.required,
+        Validators.email,
+      ]),
       password: new FormControl<string>('', [Validators.required]),
     });
 
     this._matIconRegistry.addSvgIcon(
       'google',
-      this._sanitizer.bypassSecurityTrustResourceUrl('./assets/icons/svg/google.svg'),
+      this._sanitizer.bypassSecurityTrustResourceUrl(
+        './assets/icons/svg/google.svg',
+      ),
     );
     this._matIconRegistry.addSvgIcon(
       'facebook',
-      this._sanitizer.bypassSecurityTrustResourceUrl('./assets/icons/svg/facebook.svg'),
+      this._sanitizer.bypassSecurityTrustResourceUrl(
+        './assets/icons/svg/facebook.svg',
+      ),
     );
   }
 
@@ -55,15 +69,13 @@ export class LoginPanelComponent implements OnInit {
     console.log('LOGIN PANEL INITIALIZATION');
   }
 
-  login(): void {
-
-  }
+  login(): void {}
 
   printForm(): void {
-    console.log('form')
-    console.log('invalid: ', this.loginForm.invalid)
+    console.log('form');
+    console.log('invalid: ', this.loginForm.invalid);
     console.log(this.loginForm);
-    this.loginForm.markAllAsTouched()
+    this.loginForm.markAllAsTouched();
   }
 }
 

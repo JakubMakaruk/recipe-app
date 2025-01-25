@@ -1,7 +1,7 @@
-@use '@angular/material' as mat;
-@use './mixins' as mixins;
-@use './palettes' as palettes;
-@use './dark-theme-colors' as colors;
+@use "@angular/material" as mat;
+@use "./mixins" as mixins;
+@use "./palettes" as palettes;
+@use "./dark-theme-colors" as colors;
 
 $primary: mat.m2-define-palette(palettes.$dark-green-palette);
 $accent: mat.m2-define-palette(palettes.$orange-accent-palette);

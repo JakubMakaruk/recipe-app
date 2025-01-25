@@ -1,6 +1,6 @@
-@use '@angular/material' as mat;
-@use './light-theme' as light;
-@use './dark-theme' as dark;
+@use "@angular/material" as mat;
+@use "./light-theme" as light;
+@use "./dark-theme" as dark;
 
 @mixin angular-material-theme($theme) {
   @include mat.core-theme($theme);
@@ -14,4 +14,3 @@
 .dark-theme {
   @include angular-material-theme(dark.$dark-theme);
 }
-

@@ -1,5 +1,5 @@
-@use '@angular/material' as mat;
-@use 'vars';
+@use "@angular/material" as mat;
+@use "vars";
 
 @mixin generate-css-variables($color-map) {
   @each $key, $value in $color-map {

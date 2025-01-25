@@ -5,7 +5,11 @@
     <img class="register-panel__logo" src="../../assets/logo_dark.png" />
   </div>
 
-  <form class="register-panel__form" [formGroup]="registerForm" (ngSubmit)="register()">
+  <form
+    class="register-panel__form"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+  >
     <app-input
       formControlName="firstName"
       label="Firstname"
@@ -31,7 +35,8 @@
         label="Password"
         icon="lock_open"
         type="password"
-        [passwordToggleVisible]="true">
+        [passwordToggleVisible]="true"
+      >
       </app-input>
 
       <app-input
@@ -39,7 +44,8 @@
         label="Confirm Password"
         icon="lock"
         type="password"
-        [passwordToggleVisible]="true">
+        [passwordToggleVisible]="true"
+      >
       </app-input>
     </div>
 
@@ -47,10 +53,16 @@
       mat-raised-button
       color="primary"
       type="submit"
-      class="register-panel__form-submit">
-      {{ 'SHARED_SUBMIT' | translate }}
+      class="register-panel__form-submit"
+    >
+      {{ "SHARED_SUBMIT" | translate }}
     </button>
   </form>
 
-  <h5>{{ 'AUTH_LOGIN_PREFIX_TEXT' | translate }}<a class="register-panel__login-link" [routerLink]="'../login'">{{ 'AUTH_BACK_TO_LOGIN_PAGE' | translate }}</a></h5>
+  <h5>
+    {{ "AUTH_LOGIN_PREFIX_TEXT" | translate
+    }}<a class="register-panel__login-link" [routerLink]="'../login'">{{
+      "AUTH_BACK_TO_LOGIN_PAGE" | translate
+    }}</a>
+  </h5>
 </div>

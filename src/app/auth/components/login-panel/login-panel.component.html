@@ -25,23 +25,36 @@
       mat-raised-button
       color="primary"
       type="submit"
-      class="login-panel__form-submit">
-      {{ 'SHARED_SUBMIT' | translate }}
+      class="login-panel__form-submit"
+    >
+      {{ "SHARED_SUBMIT" | translate }}
     </button>
   </form>
 
-
   <div class="login-panel__others">
-    <h5>{{ 'AUTH_REGISTER_PREFIX_TEXT' | translate }}<a class="login-panel__others-register" [routerLink]="'../register'">{{ 'AUTH_REGISTER_NOW' | translate }}</a></h5>
-    <h5 class="login-panel__others-login">{{ 'AUTH_LOGIN_WITH' | translate : { name: 'others' } }}</h5>
+    <h5>
+      {{ "AUTH_REGISTER_PREFIX_TEXT" | translate }}
+      <a class="login-panel__others-register" [routerLink]="'../register'">{{
+        "AUTH_REGISTER_NOW" | translate
+      }}</a>
+    </h5>
+    <h5 class="login-panel__others-login">
+      {{ "AUTH_LOGIN_WITH" | translate: { name: "others" } }}
+    </h5>
 
     <button mat-flat-button>
-      <mat-icon svgIcon="google" class="login-panel__others-button-icon"></mat-icon>
-      {{ 'AUTH_LOGIN_WITH' | translate : { name: 'Google' } }}
+      <mat-icon
+        svgIcon="google"
+        class="login-panel__others-button-icon"
+      ></mat-icon>
+      {{ "AUTH_LOGIN_WITH" | translate: { name: "Google" } }}
     </button>
     <button mat-flat-button>
-      <mat-icon svgIcon="facebook" class="login-panel__others-button-icon"></mat-icon>
-      {{ 'AUTH_LOGIN_WITH' | translate : { name: 'Facebook' } }}
+      <mat-icon
+        svgIcon="facebook"
+        class="login-panel__others-button-icon"
+      ></mat-icon>
+      {{ "AUTH_LOGIN_WITH" | translate: { name: "Facebook" } }}
     </button>
   </div>
 </div>

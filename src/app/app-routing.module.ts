@@ -18,7 +18,9 @@ const routes: Routes = [
   {
     path: 'recipes',
     loadChildren: () =>
-      import('./recipes/recipes-routing.module').then((m) => m.RecipesRoutingModule),
+      import('./recipes/recipes-routing.module').then(
+        (m) => m.RecipesRoutingModule,
+      ),
   },
   {
     path: '**',

@@ -1,6 +1,6 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {RecipesListComponent} from './components/recipes-list/recipes-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 
 const routes: Routes = [
   {

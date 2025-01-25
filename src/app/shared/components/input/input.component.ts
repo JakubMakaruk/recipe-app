@@ -1,14 +1,21 @@
-import {Component, forwardRef, Host, Input, Optional} from '@angular/core';
+import { Component, forwardRef, Host, Input, Optional } from '@angular/core';
 import {
-  ControlContainer, ControlValueAccessor,
+  ControlContainer,
+  ControlValueAccessor,
   NG_VALUE_ACCESSOR,
-  ReactiveFormsModule
-} from "@angular/forms";
-import {MatError, MatFormField, MatLabel, MatPrefix, MatSuffix} from "@angular/material/form-field";
-import {MatIcon} from "@angular/material/icon";
-import {MatInput} from "@angular/material/input";
-import {NgIf} from "@angular/common";
-import {MatIconButton} from "@angular/material/button";
+  ReactiveFormsModule,
+} from '@angular/forms';
+import {
+  MatError,
+  MatFormField,
+  MatLabel,
+  MatPrefix,
+  MatSuffix,
+} from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { NgIf } from '@angular/common';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-input',
@@ -23,7 +30,7 @@ import {MatIconButton} from "@angular/material/button";
     NgIf,
     ReactiveFormsModule,
     MatIconButton,
-    MatSuffix
+    MatSuffix,
   ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
@@ -31,9 +38,9 @@ import {MatIconButton} from "@angular/material/button";
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => InputComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class InputComponent implements ControlValueAccessor {
   @Input() label = '';
@@ -46,7 +53,9 @@ export class InputComponent implements ControlValueAccessor {
   isDisabled = false;
   isPasswordVisible = false;
 
-  constructor(@Optional() @Host() protected controlContainer: ControlContainer) {
+  constructor(
+    @Optional() @Host() protected controlContainer: ControlContainer,
+  ) {
     if (!this.controlContainer) {
       console.warn('CustomInputComponent musi być używany wewnątrz FormGroup.');
     }
@@ -73,7 +82,8 @@ export class InputComponent implements ControlValueAccessor {
       return 'Please enter a valid email address';
     }
     if (this.controlContainer?.hasError('minlength')) {
-      const minLength = this.controlContainer.getError('minlength')?.requiredLength;
+      const minLength =
+        this.controlContainer.getError('minlength')?.requiredLength;
       return `${this.label} must be at least ${minLength} characters long`;
     }
     return 'Invalid value';
