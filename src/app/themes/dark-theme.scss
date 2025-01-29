@@ -4,8 +4,8 @@
 @use "./dark-theme-colors" as colors;
 
 $primary: mat.m2-define-palette(palettes.$dark-green-palette);
-$accent: mat.m2-define-palette(palettes.$orange-accent-palette);
-$warn: mat.m2-define-palette(palettes.$yellow-secondary-palette);
+$accent: mat.m2-define-palette(palettes.$lime-secondary-palette);
+$warn: mat.m2-define-palette(palettes.$red-warn-palette);
 
 $dark-theme: mat.m2-define-dark-theme(
   (

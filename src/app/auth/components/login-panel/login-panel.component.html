@@ -5,21 +5,25 @@
     <img class="login-panel__logo" src="../../assets/logo_dark.png" />
   </div>
 
-  <form class="login-panel__form" [formGroup]="loginForm" (ngSubmit)="login()">
+  <form
+    class="login-panel__form"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
     <app-input
-      formControlName="email"
       label="Email"
       icon="person_outline"
       type="email"
-    ></app-input>
+      [control]="loginForm.controls.email"
+    />
 
     <app-input
-      formControlName="password"
       label="Password"
       icon="lock_open"
       type="password"
+      [control]="loginForm.controls.password"
       [passwordToggleVisible]="true"
-    ></app-input>
+    />
 
     <button
       mat-raised-button

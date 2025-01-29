@@ -11,43 +11,41 @@
     (ngSubmit)="register()"
   >
     <app-input
-      formControlName="firstName"
       label="Firstname"
       type="text"
-    ></app-input>
+      [control]="registerForm.controls.firstName"
+    />
 
     <app-input
-      formControlName="lastName"
       label="Lastname"
       type="text"
-    ></app-input>
+      [control]="registerForm.controls.lastName"
+    />
 
     <app-input
-      formControlName="email"
       label="Email"
       icon="person_outline"
       type="email"
-    ></app-input>
+      [control]="registerForm.controls.email"
+    />
 
-    <div formGroupName="password">
+    <ng-container formGroupName="password">
       <app-input
-        formControlName="password"
         label="Password"
         icon="lock_open"
         type="password"
+        [control]="registerForm.controls.password.controls.password"
         [passwordToggleVisible]="true"
-      >
-      </app-input>
+      />
 
       <app-input
-        formControlName="confirmPassword"
         label="Confirm Password"
         icon="lock"
         type="password"
+        [control]="registerForm.controls.password.controls.confirmPassword"
         [passwordToggleVisible]="true"
-      >
-      </app-input>
-    </div>
+      />
+    </ng-container>
 
     <button
       mat-raised-button

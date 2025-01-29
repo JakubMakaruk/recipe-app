@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -7,8 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +15,7 @@ import { NavigateBackComponent } from '../../../shared/components/navigate-back/
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login-panel',
@@ -32,17 +32,14 @@ import { RouterLink } from '@angular/router';
     InputComponent,
     TranslatePipe,
     RouterLink,
+    NgIf,
   ],
   standalone: true,
 })
-export class LoginPanelComponent implements OnInit {
+export class LoginPanelComponent {
   loginForm: FormGroup<LoginForm>;
 
-  constructor(
-    private _fb: FormBuilder,
-    private _matIconRegistry: MatIconRegistry,
-    private _sanitizer: DomSanitizer,
-  ) {
+  constructor(private _fb: FormBuilder) {
     this.loginForm = this._fb.group({
       email: new FormControl<string>('', [
         Validators.required,
@@ -50,32 +47,11 @@ export class LoginPanelComponent implements OnInit {
       ]),
       password: new FormControl<string>('', [Validators.required]),
     });
-
-    this._matIconRegistry.addSvgIcon(
-      'google',
-      this._sanitizer.bypassSecurityTrustResourceUrl(
-        './assets/icons/svg/google.svg',
-      ),
-    );
-    this._matIconRegistry.addSvgIcon(
-      'facebook',
-      this._sanitizer.bypassSecurityTrustResourceUrl(
-        './assets/icons/svg/facebook.svg',
-      ),
-    );
   }
 
-  ngOnInit() {
-    console.log('LOGIN PANEL INITIALIZATION');
-  }
-
-  login(): void {}
-
-  printForm(): void {
-    console.log('form');
-    console.log('invalid: ', this.loginForm.invalid);
-    console.log(this.loginForm);
+  login(): void {
     this.loginForm.markAllAsTouched();
+    this.loginForm.updateValueAndValidity();
   }
 }
 

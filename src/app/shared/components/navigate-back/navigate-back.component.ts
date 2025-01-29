@@ -19,10 +19,6 @@ export class NavigateBackComponent {
   ) {}
 
   navigateBack() {
-    if (window.history.length > 1) {
-      this._location.back();
-    } else {
-      this._router.navigate(['..']).then();
-    }
+    this._router.navigate(['..']).then();
   }
 }

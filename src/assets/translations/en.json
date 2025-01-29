@@ -10,5 +10,9 @@
   "AUTH_REGISTER_PREFIX_TEXT": "Don't have an account? ",
   "AUTH_LOGIN_PREFIX_TEXT": "Already have an account? ",
 
-  "SHARED_SUBMIT": "Submit"
+  "SHARED_SUBMIT": "Submit",
+  "SHARED_FORM_ERROR_FIELD_REQUIRED": "This field is required",
+  "SHARED_FORM_ERROR_EMAIL": "Not a valid email",
+  "SHARED_FORM_ERROR_PASSWORD_NOT_MATCH": "Passwords do not match",
+  "SHARED_FORM_ERROR_CHECKBOX_REQUIRED": "You must check the box"
 }

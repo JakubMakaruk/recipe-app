@@ -1,7 +1,7 @@
-import { Component, forwardRef, Host, Input, Optional } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import {
-  ControlContainer,
-  ControlValueAccessor,
+  FormControl,
+  FormsModule,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -16,6 +16,8 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import { MatIconButton } from '@angular/material/button';
+import { getFormControlErrorMessage } from '../../utils/form.utils';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
@@ -31,6 +33,8 @@ import { MatIconButton } from '@angular/material/button';
     ReactiveFormsModule,
     MatIconButton,
     MatSuffix,
+    FormsModule,
+    TranslatePipe,
   ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
@@ -42,76 +46,30 @@ import { MatIconButton } from '@angular/material/button';
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent {
   @Input() label = '';
   @Input() icon!: string;
   @Input() type = 'text';
   @Input() placeholder = '';
   @Input() passwordToggleVisible = false;
+  @Input({ required: true }) control!: FormControl;
 
-  value = '';
-  isDisabled = false;
-  isPasswordVisible = false;
-
-  constructor(
-    @Optional() @Host() protected controlContainer: ControlContainer,
-  ) {
-    if (!this.controlContainer) {
-      console.warn('CustomInputComponent musi być używany wewnątrz FormGroup.');
-    }
-  }
+  private _isPasswordVisible = false;
 
   get isPasswordField(): boolean {
     return this.passwordToggleVisible;
   }
 
   get passwordVisibilityIcon(): string {
-    return this.isPasswordVisible ? 'visibility_off' : 'visibility';
+    return this._isPasswordVisible ? 'visibility_off' : 'visibility';
   }
 
   togglePasswordVisibility(): void {
-    this.isPasswordVisible = !this.isPasswordVisible;
-    this.type = this.isPasswordVisible ? 'text' : 'password';
+    this._isPasswordVisible = !this._isPasswordVisible;
+    this.type = this._isPasswordVisible ? 'text' : 'password';
   }
 
   getErrorMessage(): string {
-    if (this.controlContainer?.hasError('required')) {
-      return `${this.label} is required`;
-    }
-    if (this.controlContainer?.hasError('email')) {
-      return 'Please enter a valid email address';
-    }
-    if (this.controlContainer?.hasError('minlength')) {
-      const minLength =
-        this.controlContainer.getError('minlength')?.requiredLength;
-      return `${this.label} must be at least ${minLength} characters long`;
-    }
-    return 'Invalid value';
-  }
-
-  onChange = (value: string) => {};
-  onTouched = () => {};
-
-  writeValue(value: string): void {
-    this.value = value || '';
-  }
-
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
-
-  // Obsługa zmiany wartości
-  handleInput(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.value = target.value;
-    this.onChange(this.value);
+    return getFormControlErrorMessage(this.control);
   }
 }

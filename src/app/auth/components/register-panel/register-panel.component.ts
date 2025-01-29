@@ -12,6 +12,7 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { confirmPasswordValidator } from '../../../shared/utils/form.utils';
 
 @Component({
   selector: 'app-register-panel',
@@ -32,15 +33,26 @@ export class RegisterPanelComponent {
   registerForm: FormGroup<RegisterForm>;
 
   constructor(private _fb: FormBuilder) {
-    this.registerForm = this._fb.group({
-      email: new FormControl<string>('', [Validators.required]),
-      password: this._fb.group({
-        password: new FormControl<string>('', [Validators.required]),
-        confirmPassword: new FormControl<string>('', [Validators.required]),
-      }),
-      firstName: new FormControl<string>('', [Validators.required]),
-      lastName: new FormControl<string>('', [Validators.required]),
-    });
+    this.registerForm = this._fb.group(
+      {
+        firstName: new FormControl<string>('', [Validators.required]),
+        lastName: new FormControl<string>('', [Validators.required]),
+        email: new FormControl<string>('', [
+          Validators.required,
+          Validators.email,
+        ]),
+        password: this._fb.group({
+          password: new FormControl<string>('', [Validators.required]),
+          confirmPassword: new FormControl<string>('', [Validators.required]),
+        }),
+      },
+      {
+        validators: confirmPasswordValidator(
+          'password.password',
+          'password.confirmPassword',
+        ),
+      },
+    );
   }
 
   register(): void {}

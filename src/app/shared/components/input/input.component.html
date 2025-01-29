@@ -4,11 +4,8 @@
   <input
     matInput
     [type]="type"
-    [value]="value"
     [placeholder]="placeholder"
-    [disabled]="isDisabled"
-    (input)="handleInput($event)"
-    (blur)="onTouched()"
+    [formControl]="control"
   />
 
   <button
@@ -20,7 +17,7 @@
     <mat-icon>{{ passwordVisibilityIcon }}</mat-icon>
   </button>
 
-  <mat-error *ngIf="controlContainer?.invalid && controlContainer?.touched">
-    {{ getErrorMessage() }}
+  <mat-error *ngIf="control?.invalid">
+    {{ getErrorMessage() | translate }}
   </mat-error>
 </mat-form-field>
