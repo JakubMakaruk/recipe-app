@@ -8,16 +8,15 @@
     [formControl]="control"
   />
 
-  <button
-    *ngIf="isPasswordField"
-    mat-icon-button
-    matSuffix
-    (click)="togglePasswordVisibility()"
-  >
-    <mat-icon>{{ passwordVisibilityIcon }}</mat-icon>
-  </button>
+  @if (isPasswordField) {
+    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+      <mat-icon>{{ passwordVisibilityIcon }}</mat-icon>
+    </button>
+  }
 
-  <mat-error *ngIf="control?.invalid">
-    {{ getErrorMessage() | translate }}
-  </mat-error>
+  @if (control.invalid) {
+    <mat-error>
+      {{ getErrorMessage() | translate }}
+    </mat-error>
+  }
 </mat-form-field>

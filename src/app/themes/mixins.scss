@@ -22,3 +22,42 @@
   color: var(--link-color);
   text-decoration: none;
 }
+
+@mixin nav-button {
+  & {
+    font-size: 16px;
+    border: none;
+    background: none;
+    position: relative;
+  }
+
+  &::before,
+  &:after {
+    position: absolute;
+    content: "";
+    background: var(--link-color);
+    height: 1px;
+    width: 0;
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+  &::before {
+    top: 0;
+    right: 0;
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    right: auto;
+    left: 0;
+  }
+}

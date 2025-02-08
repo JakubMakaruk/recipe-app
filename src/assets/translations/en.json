@@ -10,6 +10,11 @@
   "AUTH_REGISTER_PREFIX_TEXT": "Don't have an account? ",
   "AUTH_LOGIN_PREFIX_TEXT": "Already have an account? ",
 
+  "NAV_HOME": "Home",
+  "NAV_ABOUT": "About",
+  "NAV_RECIPES": "Recipes",
+  "NAV_BLOG": "Blog",
+
   "SHARED_SUBMIT": "Submit",
   "SHARED_FORM_ERROR_FIELD_REQUIRED": "This field is required",
   "SHARED_FORM_ERROR_EMAIL": "Not a valid email",

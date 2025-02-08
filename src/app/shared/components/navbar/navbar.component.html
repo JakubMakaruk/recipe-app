@@ -1,15 +1,34 @@
 <div class="navbar">
-  <div class="navbar__logo">
-    <img src="../../../../assets/logo.png" />
+  <div class="navbar__container">
+    <a class="navbar__item" href="">{{ "NAV_HOME" | translate }}</a>
+    <a class="navbar__item" href="">{{ "NAV_ABOUT" | translate }}</a>
+
+    <img
+      class="navbar__logo-img"
+      src="../../../../assets/logo_dark.png"
+      [routerLink]="'/home'"
+    />
+
+    <a class="navbar__item" href="">{{ "NAV_RECIPES" | translate }}</a>
+    <a class="navbar__item" href="">{{ "NAV_BLOG" | translate }}</a>
   </div>
 
-  <div class="navbar__menu">
-    <div class="navbar__menu-search">
-      <mat-icon>search</mat-icon>
-    </div>
-    <ul>
-      <li class="navbar__menu-item">Sign up</li>
-      <li class="navbar__menu-item">Login</li>
-    </ul>
-  </div>
+  <button class="navbar__user" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon class="navbar__user-icon" fontIcon="person_outline" />
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
 </div>

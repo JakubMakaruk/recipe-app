@@ -16,6 +16,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'home',
+    loadComponent: () =>
+      import('./home/home.component').then((x) => x.HomeComponent),
+  },
+  {
     path: 'recipes',
     loadChildren: () =>
       import('./recipes/recipes-routing.module').then(
