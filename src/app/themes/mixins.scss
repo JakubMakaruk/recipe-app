@@ -19,13 +19,14 @@
 
 @mixin link {
   font-weight: 700;
-  color: var(--link-color);
+  color: var(--link-text);
   text-decoration: none;
 }
 
 @mixin nav-button {
   & {
     font-size: 16px;
+    font-weight: 500;
     border: none;
     background: none;
     position: relative;
@@ -35,7 +36,7 @@
   &:after {
     position: absolute;
     content: "";
-    background: var(--link-color);
+    background: var(--dark-text);
     height: 1px;
     width: 0;
     z-index: -1;
