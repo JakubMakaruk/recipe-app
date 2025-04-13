@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PreloadModulesStrategy } from './preload-modules.strategy';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './domain/landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -11,19 +11,19 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
-      import('./auth/authentication-routing.module').then(
+      import('./domain/auth/authentication-routing.module').then(
         (m) => m.AuthenticationRoutingModule,
       ),
   },
   {
     path: 'home',
     loadComponent: () =>
-      import('./home/home.component').then((x) => x.HomeComponent),
+      import('./domain/home/home.component').then((x) => x.HomeComponent),
   },
   {
     path: 'recipes',
     loadChildren: () =>
-      import('./recipes/recipes-routing.module').then(
+      import('./domain/recipes/recipes-routing.module').then(
         (m) => m.RecipesRoutingModule,
       ),
   },

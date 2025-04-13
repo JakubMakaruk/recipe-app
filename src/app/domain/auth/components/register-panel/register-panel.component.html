@@ -6,6 +6,7 @@
   </div>
 
   <form
+    *ngIf="registerForm"
     class="register-panel__form"
     [formGroup]="registerForm"
     (ngSubmit)="register()"

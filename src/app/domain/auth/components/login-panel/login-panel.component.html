@@ -5,7 +5,12 @@
     <img class="login-panel__logo" src="../../assets/logo_dark.png" />
   </div>
 
-  <form class="login-panel__form" [formGroup]="loginForm" (ngSubmit)="login()">
+  <form
+    *ngIf="loginForm"
+    class="login-panel__form"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
     <app-input
       label="Email"
       icon="person_outline"

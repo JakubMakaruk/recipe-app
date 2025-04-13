@@ -1,12 +1,12 @@
 import { AuthState } from '../models/auth-state.model';
 import { Action, createReducer, on } from '@ngrx/store';
 import { AuthActions, logout } from './auth.actions';
-import { state } from '@angular/animations';
 
 const initialState: AuthState = {
   userId: null,
   token: null,
   loading: false,
+  error: null,
 };
 
 const _authReducer = createReducer(
@@ -14,22 +14,22 @@ const _authReducer = createReducer(
   on(AuthActions.login, (state) => ({
     ...state,
     loading: true,
+    error: null,
   })),
   on(AuthActions.loginSuccessfully, (state, { response }) => ({
     ...state,
     loading: false,
+    error: null,
   })),
   on(AuthActions.loginFailed, (state, { error }) => ({
     ...state,
     loading: false,
   })),
   on(logout, (state) => ({
-    userId: null,
-    token: null,
-    loading: false,
+    ...initialState,
   })),
 );
 
-export function authReducer(state: AuthState, action: Action) {
+export function authReducer(state: AuthState = initialState, action: Action) {
   return _authReducer(state, action);
 }

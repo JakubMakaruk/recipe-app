@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavigateBackComponent } from '../../../shared/components/navigate-back/navigate-back.component';
 import {
   FormBuilder,
   FormControl,
@@ -7,12 +6,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { InputComponent } from '../../../shared/components/input/input.component';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
-import { confirmPasswordValidator } from '../../../shared/utils/form.utils';
+import { InputComponent } from '../../../../shared/components/input/input.component';
+import { confirmPasswordValidator } from '../../../../shared/utils/form.utils';
+import { NavigateBackComponent } from '../../../../shared/components/navigate-back/navigate-back.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-register-panel',
@@ -25,14 +26,21 @@ import { confirmPasswordValidator } from '../../../shared/utils/form.utils';
     ReactiveFormsModule,
     TranslatePipe,
     RouterLink,
+    NgIf,
   ],
   templateUrl: './register-panel.component.html',
   styleUrl: './register-panel.component.scss',
 })
 export class RegisterPanelComponent {
-  registerForm: FormGroup<RegisterForm>;
+  registerForm: FormGroup<RegisterForm> | null = null;
 
   constructor(private _fb: FormBuilder) {
+    this._createRegisterForm();
+  }
+
+  register(): void {}
+
+  private _createRegisterForm(): void {
     this.registerForm = this._fb.group(
       {
         firstName: new FormControl<string>('', [Validators.required]),
@@ -54,8 +62,6 @@ export class RegisterPanelComponent {
       },
     );
   }
-
-  register(): void {}
 }
 
 interface RegisterForm {

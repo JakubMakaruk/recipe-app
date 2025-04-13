@@ -1,5 +1,5 @@
-@use "./app/themes/vars" as vars;
-@use "./app/themes/mixins" as mixins;
+@use "../../themes/vars" as vars;
+@use "../../themes/mixins" as mixins;
 
 .landing-page {
   height: 100%;
