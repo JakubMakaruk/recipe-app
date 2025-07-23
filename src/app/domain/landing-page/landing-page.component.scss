@@ -9,6 +9,10 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
+  background: url("/assets/photos/landing-page-background-horizontal.jpg")
+    rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  background-blend-mode: multiply;
 
   &__logo-container {
     width: 100%;
@@ -27,7 +31,7 @@
   &__description {
     margin-bottom: 24px;
     text-align: center;
-    color: #6d6d6d;
+    color: var(--white);
   }
 
   &__actions {

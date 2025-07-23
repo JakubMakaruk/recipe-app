@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { noop } from 'rxjs';
 import { MatIcon } from '@angular/material/icon';
-import { MatFabButton } from '@angular/material/button';
+import { MatFabButton, MatIconButton } from '@angular/material/button';
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   templateUrl: './navigate-back.component.html',
   styleUrls: ['./navigate-back.component.scss'],
   standalone: true,
-  imports: [MatIcon, MatFabButton],
+  imports: [MatIcon, MatFabButton, MatIconButton],
 })
 export class NavigateBackComponent {
   constructor(

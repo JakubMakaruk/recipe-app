@@ -1,0 +1,10 @@
+<div class="categories">
+  @for (category of categories(); track category.id) {
+    <div class="categories__item">
+      <button mat-flat-button class="categories__item-button">
+        <mat-icon [svgIcon]="category.icon" class="categories__item-icon" />
+      </button>
+      <span>{{ category.label }}</span>
+    </div>
+  }
+</div>

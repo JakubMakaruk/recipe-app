@@ -12,10 +12,13 @@
   &__logo-container {
     width: 100%;
     max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__logo {
-    width: 100%;
+    width: 70%;
   }
 
   &__form {
