@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Category } from './models/category.model';
 import { getCategories } from './const/categories.const';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { RecipesStore } from '../../store/recipes.store';
 
 @Component({
   selector: 'app-categories',
@@ -12,5 +13,11 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent {
+  public recipesStore = inject(RecipesStore);
+
   protected categories = signal<Category[]>(getCategories());
+
+  protected selectCategory(category: Category): void {
+    this.recipesStore.setCategory(category);
+  }
 }

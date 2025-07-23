@@ -38,3 +38,11 @@ body {
 .mat-mdc-icon-button.mat-mdc-button-base {
   display: flex;
 }
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: red !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: red !important;
+}

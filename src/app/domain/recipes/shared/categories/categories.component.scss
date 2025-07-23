@@ -8,12 +8,23 @@
   gap: v.$space-12;
   overflow-x: auto;
 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 10px;
     height: auto;
+
+    &:last-of-type {
+      margin-right: v.$space-20;
+    }
   }
 
   &__item-button {
