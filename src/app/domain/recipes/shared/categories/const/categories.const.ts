@@ -33,8 +33,8 @@ export const getCategories = (): Category[] => [
   },
   {
     id: 'cate',
-    label: 'Barbaque',
-    icon: 'barbaque',
+    label: 'Barbeque',
+    icon: 'barbeque',
   },
   {
     id: 'cate',

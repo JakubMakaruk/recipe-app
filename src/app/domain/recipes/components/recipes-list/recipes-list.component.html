@@ -8,13 +8,8 @@
   <app-categories />
 
   <div class="recipes__wrapper">
-    <div class="recipes__list">
-      <!--      <app-recipes-list-item-->
-      <!--        *ngFor="let recipe of recipes"-->
-      <!--        class="recipes__list-item"-->
-      <!--        [recipe]="recipe"-->
-      <!--      >-->
-      <!--      </app-recipes-list-item>-->
-    </div>
+    @for (recipe of recipes(); track recipe) {
+      <app-recipes-list-item [recipe]="recipe" />
+    }
   </div>
 </div>
