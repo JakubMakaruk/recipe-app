@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="header__left-side">
+    <img class="header__logo" src="../../assets/logo_dark.png" />
+
+    <div class="menu">
+      @for (item of menuItems(); track item) {
+        <button mat-button (click)="item.callback()">
+          {{ item.labelKey | translate }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="header__right-side">
+    <button mat-stroked-button color="primary">
+      {{ "AUTH_LOGIN" | translate }}
+    </button>
+
+    <button mat-flat-button color="primary">
+      {{ "AUTH_REGISTER" | translate }}
+    </button>
+  </div>
+</div>

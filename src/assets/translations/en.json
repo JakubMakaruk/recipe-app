@@ -1,4 +1,10 @@
 {
+  "HEADER_HOME": "Home",
+  "HEADER_RECIPES": "Recipes",
+  "HEADER_ABOUT": "About",
+  "HEADER_PRICING": "Pricing",
+  "HEADER_CONTACT": "Contact",
+
   "LANDING_PAGE_BACK_BUTTON_TEXT": "Back to landing page",
   "LANDING_PAGE_DISCOVER_BUTTON_TEXT": "Discover recipes without login",
   "LANDING_PAGE_HEADER_TEXT": "Discover more than 100 food recipes in your hands and cooking it!",

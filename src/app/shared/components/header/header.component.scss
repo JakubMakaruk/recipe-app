@@ -1,0 +1,27 @@
+@use "./app/themes/vars" as v;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: v.$space-16 v.$space-20;
+
+  &__logo {
+    height: 80%;
+    max-height: 56px;
+  }
+
+  &__left-side,
+  &__right-side {
+    display: flex;
+    align-items: center;
+    gap: v.$space-20;
+    flex-wrap: wrap;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: v.$space-8;
+  flex-wrap: wrap;
+}

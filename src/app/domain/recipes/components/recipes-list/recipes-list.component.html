@@ -1,14 +1,16 @@
-<div class="recipes">
-  <app-navigate-landing-page />
+<div class="recipes container-app">
+  <!--  <app-navigate-landing-page />-->
 
-  <div class="recipes__header">
-    <img src="../../../../../assets/logo_dark.png" />
-  </div>
+  <!--  <div class="recipes__header">-->
+  <!--    <img src="../../../../../assets/logo_dark.png" />-->
+  <!--  </div>-->
+
+  <app-header />
 
   <app-categories />
 
   <div class="recipes__wrapper">
-    @for (recipe of recipes(); track recipe) {
+    @for (recipe of recipes(); track recipe.id) {
       <app-recipes-list-item [recipe]="recipe" />
     }
   </div>

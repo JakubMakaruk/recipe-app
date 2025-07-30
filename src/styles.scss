@@ -1,6 +1,8 @@
 @use "@angular/material" as mat;
 @import "./app/themes/light-theme";
 @import "./app/themes/dark-theme";
+@import "./app/themes/vars";
+@import "./app/themes/custom-component-styles";
 
 @include mat.core();
 
@@ -18,7 +20,7 @@ html {
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Quicksand, "Helvetica Neue", sans-serif !important;
   background-color: var(--default-background-color);
 }
 
@@ -45,4 +47,15 @@ body {
 
 .mat-form-field.mat-focused .mat-form-field-label {
   color: red !important;
+}
+
+.mdc-button {
+  border-radius: $space-16 !important;
+}
+
+.container-app {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1280px;
 }

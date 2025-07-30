@@ -4,15 +4,20 @@
 .categories {
   width: 100%;
   padding: 0 0 v.$space-8 v.$space-20;
-  display: flex;
-  gap: v.$space-12;
   overflow-x: auto;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: v.$space-12;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: fit-content;
   }
 
   &__item {
@@ -32,11 +37,17 @@
     height: 64px;
     margin: 0;
     padding: v.$space-8;
+    border-radius: v.$space-16;
   }
 
   &__item-icon {
     @include m.icon-size(40);
     margin-right: 0 !important;
     margin-left: 0 !important;
+  }
+
+  &__item-label {
+    font-weight: v.$font-weight-500;
+    font-size: v.$font-size-11;
   }
 }

@@ -4,12 +4,14 @@ export const getBreakfasts = (): RecipeListItem[] => [
   {
     id: 'reci-b1',
     title: 'Jajecznia',
-    photoUrl: '',
+    photoUrl:
+      'https://www.tasteofhome.com/wp-content/uploads/2025/03/Baked-Scrambled-Eggs_EXPS_FT25_278646_EC_0312_5.jpg?w=892',
   },
   {
     id: 'reci-b2',
     title: 'Szakszuka',
-    photoUrl: '',
+    photoUrl:
+      'https://www.tasteofhome.com/wp-content/uploads/2025/03/Baked-Scrambled-Eggs_EXPS_FT25_278646_EC_0312_5.jpg?w=892',
   },
   {
     id: 'reci-b3',

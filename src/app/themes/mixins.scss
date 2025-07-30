@@ -1,15 +1,15 @@
 @use "@angular/material" as mat;
-@use "vars";
+@use "vars" as v;
 
 @mixin generate-css-variables($color-map) {
   @each $key, $value in $color-map {
-    --#{$key}: #{$value};
+    --#{"#{$key}"}: #{$value}; // albo bez podwójnego interpolowania: --"#{$key}"
   }
 }
 
 @mixin standard-button-properties() {
-  height: vars.$button-height-standard;
-  border-radius: vars.$button-border-radius-standard;
+  height: v.$button-height-standard;
+  border-radius: v.$button-border-radius-standard;
 }
 
 @mixin icon-size($value) {
@@ -21,6 +21,12 @@
   font-weight: 700;
   color: var(--link-text);
   text-decoration: none;
+}
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get(v.$breakpoints, $breakpoint)) {
+    @content;
+  }
 }
 
 @mixin nav-button {

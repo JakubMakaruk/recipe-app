@@ -35,7 +35,7 @@ export const RecipesStore = signalStore(
         switchMap((query) =>
           recipesService
             .getRecipesByQuery(
-              store.category()!.label.toLowerCase() as CategoryEnum,
+              (store.category()?.label.toLowerCase() as CategoryEnum) ?? '',
               query,
             )
             .pipe(

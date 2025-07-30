@@ -1,35 +1,50 @@
+@use "./app/themes/vars" as v;
+
 .recipe-item {
   position: relative;
-  height: 180px;
-  width: 300px;
-  border: 2px solid #fff;
-  border-radius: 8px;
   overflow: hidden;
 
+  &__photo-container {
+    position: relative;
+    border-radius: v.$space-16;
+    width: 100%;
+    overflow: hidden;
+  }
+
   &__photo {
-    min-width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    filter: brightness(60%);
+    position: static !important;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  &__details {
+    padding: v.$space-8 0;
   }
 
   &__title {
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    color: #fff;
-    font-size: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    z-index: 10;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: v.$space-8;
+  }
 
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  &__time,
+  &__rate {
+    display: flex;
+    align-items: center;
+    gap: v.$space-4;
+    font-size: 13px;
+  }
+
+  &__time-icon {
+    color: v.$green;
+  }
+
+  &__rate-icon {
+    color: v.$yellow;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
   }
 }

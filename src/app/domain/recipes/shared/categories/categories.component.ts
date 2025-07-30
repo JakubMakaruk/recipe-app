@@ -41,6 +41,7 @@ export class CategoriesComponent implements OnInit {
           }
         } else {
           this.recipesStore.reset();
+          this.recipesStore.loadRecipes('');
         }
       });
   }

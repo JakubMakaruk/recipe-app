@@ -1,5 +1,7 @@
-<mat-form-field class="login-panel__form-input" appearance="outline">
-  <mat-label>{{ label }}</mat-label>
+<mat-form-field class="input" appearance="outline">
+  @if (label) {
+    <mat-label>{{ label }}</mat-label>
+  }
   <mat-icon *ngIf="icon" matPrefix>{{ icon }}</mat-icon>
   <input
     matInput

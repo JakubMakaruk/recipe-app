@@ -1,0 +1,13 @@
+@use "../vars" as v;
+
+app-input {
+  .mdc-notched-outline__leading {
+    border-top-left-radius: v.$space-16 !important;
+    border-bottom-left-radius: v.$space-16 !important;
+  }
+
+  .mdc-notched-outline__trailing {
+    border-top-right-radius: v.$space-16 !important;
+    border-bottom-right-radius: v.$space-16 !important;
+  }
+}

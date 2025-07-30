@@ -1,32 +1,22 @@
-import { Component, computed, inject } from '@angular/core';
-import { RecipeListItem } from '../../models/recipe-list-item.model';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { RecipesListItemComponent } from '../recipes-list-item/recipes-list-item.component';
-import { NgForOf } from '@angular/common';
-import { RECIPES_LIST } from './recipes-list.mock';
 import { CategoriesComponent } from '../../shared/categories/categories.component';
-import { MatButton } from '@angular/material/button';
-import { TranslatePipe } from '@ngx-translate/core';
-import { NavigateLandingPageComponent } from '../../../../shared/components/navigate-landing-page/navigate-landing-page.component';
 import { RecipesStore } from '../../store/recipes.store';
+import { HeaderComponent } from '../../../../shared/components/header/header.component';
 
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
   styleUrls: ['./recipes-list.component.scss'],
-  imports: [
-    RecipesListItemComponent,
-    NgForOf,
-    CategoriesComponent,
-    MatButton,
-    TranslatePipe,
-    NavigateLandingPageComponent,
-  ],
+  imports: [RecipesListItemComponent, CategoriesComponent, HeaderComponent],
   standalone: true,
 })
-export class RecipesListComponent {
+export class RecipesListComponent implements OnInit {
   private recipesStore = inject(RecipesStore);
 
   protected recipes = computed(() => this.recipesStore.recipes());
 
-  // recipes: Recipe[] = RECIPES_LIST;
+  public ngOnInit(): void {
+    this.recipesStore.loadRecipes('');
+  }
 }

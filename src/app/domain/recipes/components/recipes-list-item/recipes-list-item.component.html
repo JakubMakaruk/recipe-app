@@ -1,4 +1,21 @@
 <div class="recipe-item">
-  <img class="recipe-item__photo" src="{{ recipe().photoUrl }}" />
-  <p class="recipe-item__title">{{ recipe().title }}</p>
+  <div class="recipe-item__photo-container">
+    <img class="recipe-item__photo" [ngSrc]="recipe().photoUrl" fill alt="" />
+  </div>
+
+  <div class="recipe-item__details">
+    <p class="recipe-item__title">{{ recipe().title }}</p>
+
+    <div class="recipe-item__info">
+      <div class="recipe-item__time">
+        <mat-icon class="recipe-item__time-icon" fontIcon="timelapse" />
+        <span>30 min</span>
+      </div>
+
+      <div class="recipe-item__rate">
+        <mat-icon class="recipe-item__rate-icon" fontIcon="star" />
+        <span>4.9</span>
+      </div>
+    </div>
+  </div>
 </div>
