@@ -1,0 +1,40 @@
+<div class="recipe-details container-app">
+  <app-header />
+
+  @if (recipe()) {
+    <div class="recipe-details__wrapper">
+      <div class="recipe-details__info">
+        <h1 class="recipe-details__title">{{ recipe()!.title }}</h1>
+
+        <p class="recipe-details__description">
+          {{ recipe()!.description }} Lorem ipsum dolor sit amet, consectetur
+          adipisicing elit. Ad atque ea error eum fuga, iure minus quaerat ut.
+          Alias aliquid commodi dicta dolorum, esse eum excepturi exercitationem
+          explicabo facere iste iure minima non nostrum odio officia qui quos,
+          saepe sint tenetur unde. Alias aperiam asperiores atque blanditiis
+          ducimus error fuga fugit hic ipsa maxime natus, odit possimus quas
+          quasi quisquam quo rerum sit totam. Quam quod ratione tempore. Beatae
+          deleniti dolorem error facere, fugit, impedit magni mollitia nobis,
+          odit quasi sequi ut voluptatum. A accusantium beatae dolores ducimus,
+          ea minima molestiae necessitatibus nostrum omnis praesentium
+          reiciendis repellat sapiente, similique ut.
+        </p>
+
+        <app-recipe-ingredients [ingredients]="recipe()!.ingredients" />
+
+        <app-recipe-steps [steps]="recipe()!.steps" />
+      </div>
+
+      <div class="recipe-details__photo-container">
+        <img
+          [ngSrc]="recipe()!.photoUrl"
+          class="recipe-details__photo"
+          fill
+          alt=""
+        />
+      </div>
+    </div>
+  }
+
+  <app-footer />
+</div>

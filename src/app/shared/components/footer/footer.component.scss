@@ -1,0 +1,13 @@
+@use "./app/themes/mixins" as m;
+@use "./app/themes/vars" as v;
+
+.footer {
+  &__hr {
+    margin: v.$space-20 0;
+    @include m.hr(black);
+  }
+
+  &__text {
+    text-align: center;
+  }
+}

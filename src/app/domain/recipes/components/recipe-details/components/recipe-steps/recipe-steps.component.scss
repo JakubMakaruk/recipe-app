@@ -1,0 +1,30 @@
+@use "./app/themes/vars" as v;
+@use "./app/themes/mixins" as m;
+
+.steps {
+  background-color: var(--steps-container-background-color);
+  padding: v.$space-24 v.$space-32;
+  border-radius: v.$space-16;
+  color: #fff;
+
+  &__header-text {
+    font-weight: 600;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-8;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: v.$space-4;
+  }
+
+  &__hr {
+    @include m.hr("white");
+    margin: v.$space-16 0;
+  }
+}

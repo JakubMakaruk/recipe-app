@@ -1,0 +1,24 @@
+<div class="steps">
+  <h4 class="steps__header-text">{{ "RECIPE_STEPS" | translate }}</h4>
+
+  <div class="steps__hr"></div>
+
+  <form [formGroup]="form()">
+    @if (stepsArray().length > 0) {
+      <div formArrayName="stepsArray" class="steps__content">
+        @for (step of steps(); track step; let i = $index) {
+          <div class="steps__item">
+            <mat-checkbox color="orange" [formControlName]="i"></mat-checkbox>
+            <span
+              [style.text-decoration]="
+                stepsArray().at(i).value ? 'line-through' : 'none'
+              "
+            >
+              {{ step }}
+            </span>
+          </div>
+        }
+      </div>
+    }
+  </form>
+</div>

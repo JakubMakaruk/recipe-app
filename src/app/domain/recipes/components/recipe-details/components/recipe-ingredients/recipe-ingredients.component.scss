@@ -1,0 +1,40 @@
+@use "./app/themes/vars" as v;
+@use "./app/themes/mixins" as m;
+
+.ingredients {
+  background-color: #fdfdfd;
+  padding: v.$space-24 v.$space-32;
+  border-radius: v.$space-16;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: v.$space-8;
+  }
+
+  &__header-text {
+    font-weight: 600;
+  }
+
+  &__hr {
+    @include m.hr("green");
+    margin: v.$space-16 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-12;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: v.$space-12;
+  }
+
+  &__item-icon {
+    @include m.icon-size(40);
+  }
+}

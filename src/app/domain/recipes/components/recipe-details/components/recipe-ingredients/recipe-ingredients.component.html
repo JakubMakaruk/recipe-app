@@ -1,0 +1,27 @@
+@if (ingredients().length) {
+  <div class="ingredients">
+    <div class="ingredients__header">
+      <h4 class="ingredients__header-text">
+        {{ "RECIPE_INGREDIENTS" | translate }}
+      </h4>
+
+      <button mat-flat-button color="primary">
+        {{ "RECIPE_MAKE_SHOPPING_LIST" | translate }}
+      </button>
+    </div>
+
+    <div class="ingredients__hr"></div>
+
+    <div class="ingredients__content">
+      @for (ingredient of ingredients(); track ingredient) {
+        <div class="ingredients__item">
+          <mat-icon
+            [svgIcon]="ingredient.icon"
+            class="ingredients__item-icon"
+          />
+          <span>{{ ingredient.value }}</span>
+        </div>
+      }
+    </div>
+  </div>
+}
