@@ -1,14 +1,4 @@
 {
-  "HEADER_HOME": "Home",
-  "HEADER_RECIPES": "Recipes",
-  "HEADER_ABOUT": "About",
-  "HEADER_PRICING": "Pricing",
-  "HEADER_CONTACT": "Contact",
-
-  "LANDING_PAGE_BACK_BUTTON_TEXT": "Back to landing page",
-  "LANDING_PAGE_DISCOVER_BUTTON_TEXT": "Discover recipes without login",
-  "LANDING_PAGE_HEADER_TEXT": "Discover more than 100 food recipes in your hands and cooking it!",
-
   "AUTH_LOGIN": "Login",
   "AUTH_REGISTER": "Register",
   "AUTH_LOGIN_WITH": "Login with {{name}}",
@@ -17,12 +7,26 @@
   "AUTH_REGISTER_PREFIX_TEXT": "Don't have an account? ",
   "AUTH_LOGIN_PREFIX_TEXT": "Already have an account? ",
 
+  "HEADER_HOME": "Home",
+  "HEADER_RECIPES": "Recipes",
+  "HEADER_ABOUT": "About",
+  "HEADER_PRICING": "Pricing",
+  "HEADER_CONTACT": "Contact",
+
+  "HOME_HEADER": "Explore culinary insights",
+
+  "LANDING_PAGE_BACK_BUTTON_TEXT": "Back to landing page",
+  "LANDING_PAGE_DISCOVER_BUTTON_TEXT": "Discover recipes without login",
+  "LANDING_PAGE_HEADER_TEXT": "Discover more than 100 food recipes in your hands and cooking it!",
+
   "NAV_HOME": "Home",
   "NAV_ABOUT": "About",
   "NAV_RECIPES": "Recipes",
   "NAV_BLOG": "Blog",
 
-  "HOME_HEADER": "Explore culinary insights",
+  "RECIPE_INGREDIENTS": "Ingredients",
+  "RECIPE_STEPS": "Steps",
+  "RECIPE_MAKE_SHOPPING_LIST": "Create shopping list",
 
   "SHARED_SUBMIT": "Submit",
   "SHARED_FORM_ERROR_FIELD_REQUIRED": "This field is required",

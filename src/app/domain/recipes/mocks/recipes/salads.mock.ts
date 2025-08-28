@@ -1,4 +1,4 @@
-import { RecipeListItem } from '../models/recipe-list-item.model';
+import { RecipeListItem } from '../../models/recipe-list-item.model';
 
 export const getSalads = (): RecipeListItem[] => [
   {

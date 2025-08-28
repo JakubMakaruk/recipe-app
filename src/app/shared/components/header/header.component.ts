@@ -1,15 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MenuItem } from '../../models/menu-item.model';
 import { Router } from '@angular/router';
-import { getMenuItems } from '../../utils/menu-items.util';
+import { getMenuItems } from '../../utils';
+import { NgTemplateOutlet } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButton, TranslatePipe],
+  imports: [MatButton, TranslatePipe, NgTemplateOutlet, MatIcon, MatIconButton],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -17,6 +19,7 @@ export class HeaderComponent {
   private readonly fb = inject(NonNullableFormBuilder);
   private readonly router = inject(Router);
 
+  protected hamburgerMenuActive = signal(false);
   protected menuItems = signal<MenuItem[]>(getMenuItems(this.router));
 
   protected searchForm: FormGroup<SearchForm> | null = null;
@@ -25,7 +28,11 @@ export class HeaderComponent {
     this.createSearchForm();
   }
 
-  search(): void {
+  protected toggleHamburgerMenu(): void {
+    this.hamburgerMenuActive.set(!this.hamburgerMenuActive());
+  }
+
+  protected search(): void {
     if (!this.searchForm) {
       return;
     }

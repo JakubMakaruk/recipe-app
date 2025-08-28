@@ -1,5 +1,5 @@
-import { Component, input, Input, InputSignal } from '@angular/core';
-import { RecipeListItem } from '../../models/recipe-list-item.model';
+import { Component, input, InputSignal, output } from '@angular/core';
+import { RecipeListItem } from '../../models';
 import { NgOptimizedImage } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 
@@ -12,4 +12,6 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class RecipesListItemComponent {
   public recipe: InputSignal<RecipeListItem> = input.required();
+
+  public navigateToDetails = output<string>();
 }

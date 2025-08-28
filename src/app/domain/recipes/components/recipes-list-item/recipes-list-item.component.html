@@ -1,6 +1,12 @@
 <div class="recipe-item">
   <div class="recipe-item__photo-container">
-    <img class="recipe-item__photo" [ngSrc]="recipe().photoUrl" fill alt="" />
+    <img
+      class="recipe-item__photo"
+      [ngSrc]="recipe().photoUrl"
+      (click)="navigateToDetails.emit(this.recipe().title)"
+      fill
+      alt=""
+    />
   </div>
 
   <div class="recipe-item__details">

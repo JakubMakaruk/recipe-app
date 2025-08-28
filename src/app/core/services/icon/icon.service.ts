@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CustomIcon } from '../../models';
 import { MEDIA_ICONS } from '../../const';
 import { CATEGORIES_ICONS } from '../../const/categories-icons.const';
+import { INGREDIENTS_ICONS } from '../../const/ingredients-icons.const';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class IconService {
   private readonly icons = signal<CustomIcon[]>([
     ...MEDIA_ICONS,
     ...CATEGORIES_ICONS,
+    ...INGREDIENTS_ICONS,
   ]);
 
   registerIcons(): void {

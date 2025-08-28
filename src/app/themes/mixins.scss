@@ -23,6 +23,11 @@
   text-decoration: none;
 }
 
+@mixin hr($color) {
+  width: 100%;
+  border-top: 1px solid var(--#{$color});
+}
+
 @mixin respond-to($breakpoint) {
   @media (min-width: map-get(v.$breakpoints, $breakpoint)) {
     @content;

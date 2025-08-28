@@ -2,6 +2,7 @@
 @import "./app/themes/light-theme";
 @import "./app/themes/dark-theme";
 @import "./app/themes/vars";
+@import "./app/themes/mixins";
 @import "./app/themes/custom-component-styles";
 
 @include mat.core();
@@ -31,8 +32,15 @@ body {
 }
 
 .mat-typography {
+  h1,
   h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
   p {
+    font-family: Quicksand, "Helvetica Neue", sans-serif !important;
     margin: 0;
   }
 }
@@ -54,8 +62,13 @@ body {
 }
 
 .container-app {
-  margin-right: auto;
-  margin-left: auto;
+  padding: 0 40px 20px;
   width: 100%;
   max-width: 1280px;
+
+  @include respond-to("container-app") {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 0 20px;
+  }
 }

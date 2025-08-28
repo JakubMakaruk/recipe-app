@@ -2,17 +2,23 @@
 @use "../../themes/mixins" as mixins;
 
 .landing-page {
-  min-height: 100vh;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  min-height: 100vh;
+  padding: 20px;
   background: url("/assets/photos/landing-page-background-horizontal.jpg")
     rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-blend-mode: multiply;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
 
   &__logo-container {
     width: 100%;

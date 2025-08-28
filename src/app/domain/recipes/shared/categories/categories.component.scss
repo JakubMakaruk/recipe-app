@@ -1,6 +1,11 @@
 @use "./app/themes/mixins" as m;
 @use "./app/themes/vars" as v;
 
+:host {
+  display: block;
+  padding-right: 20px;
+}
+
 .categories {
   width: 100%;
   padding: 0 0 v.$space-8 v.$space-20;
@@ -26,10 +31,6 @@
     align-items: center;
     font-size: 10px;
     height: auto;
-
-    &:last-of-type {
-      margin-right: v.$space-20;
-    }
   }
 
   &__item-button {

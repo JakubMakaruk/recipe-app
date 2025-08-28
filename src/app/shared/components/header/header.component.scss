@@ -1,9 +1,11 @@
 @use "./app/themes/vars" as v;
+@use "./app/themes/mixins" as m;
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: v.$space-20;
   padding: v.$space-16 v.$space-20;
 
   &__logo {
@@ -11,17 +13,62 @@
     max-height: 56px;
   }
 
-  &__left-side,
-  &__right-side {
+  &__auth-actions {
     display: flex;
-    align-items: center;
-    gap: v.$space-20;
-    flex-wrap: wrap;
+    gap: v.$space-8;
   }
 }
 
 .menu {
-  display: flex;
-  gap: v.$space-8;
-  flex-wrap: wrap;
+  display: none;
+}
+
+@include m.respond-to("hamburger-navbar") {
+  .menu {
+    display: flex;
+    gap: v.$space-8;
+    flex-wrap: wrap;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+.hamburger-menu {
+  &__content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+
+    background-color: var(--default-background-color);
+
+    .menu-item {
+      width: 100%;
+      border-radius: 0 !important;
+      height: 60px;
+    }
+  }
+
+  &__close-btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 23px 60px;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: v.$space-32;
+  }
+
+  .header__auth-actions {
+    gap: v.$space-24;
+  }
 }

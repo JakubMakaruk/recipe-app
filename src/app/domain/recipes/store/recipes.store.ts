@@ -1,4 +1,4 @@
-import { Category } from '../shared/categories/models/category.model';
+import { Category } from '../shared/categories/models';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import {
   setError,
@@ -6,18 +6,18 @@ import {
   setLoading,
   withCallState,
 } from '@angular-architects/ngrx-toolkit';
-import { RecipesService } from '../services/recipes.service';
+import { RecipesService } from '../services';
 import { inject } from '@angular/core';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
-import { RecipeListItem } from '../models/recipe-list-item.model';
-import { CategoryEnum } from '../shared/categories/enums/category.enum';
+import { RecipeListItem } from '../models';
+import { CategoryEnum } from '../shared/categories/enums';
 
-type RecipesState = {
+interface RecipesState {
   category: Category | null;
   recipes: RecipeListItem[];
-};
+}
 
 const initialState: RecipesState = {
   category: null,

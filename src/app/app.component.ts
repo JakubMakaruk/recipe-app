@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IconService } from './core/services/icon/icon.service';
+import { Component, inject } from '@angular/core';
+import { IconService } from './core/services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { IconService } from './core/services/icon/icon.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public route = inject(ActivatedRoute);
+
   title = 'recipe-app';
 
   constructor(private _iconService: IconService) {

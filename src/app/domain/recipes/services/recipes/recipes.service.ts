@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { RecipeListItem } from '../models/recipe-list-item.model';
-import { CategoryEnum } from '../shared/categories/enums/category.enum';
-import { getBreakfasts, getDrinks, getSalads } from '../mocks';
+import { RecipeListItem } from '../../models';
+import { CategoryEnum } from '../../shared/categories/enums';
+import {
+  allRecipes,
+  getBreakfasts,
+  getCakes,
+  getDrinks,
+  getSalads,
+} from '../../mocks';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +16,9 @@ import { getBreakfasts, getDrinks, getSalads } from '../mocks';
 export class RecipesService {
   getRecipesByQuery(
     category: CategoryEnum,
-    query: string,
+    _query: string,
   ): Observable<RecipeListItem[]> {
-    let recipes: RecipeListItem[] = [];
-
-    console.log('getRecipesByQuery', query);
+    let recipes: RecipeListItem[];
 
     switch (category) {
       case CategoryEnum.Breakfast:
@@ -23,15 +27,16 @@ export class RecipesService {
       case CategoryEnum.Salads:
         recipes = getSalads();
         break;
+      case CategoryEnum.Cakes:
+        recipes = getCakes();
+        break;
       case CategoryEnum.Drinks:
         recipes = getDrinks();
         break;
       default:
-        recipes = [...getBreakfasts(), ...getSalads(), ...getDrinks()];
+        recipes = allRecipes();
         break;
     }
-
-    console.log(recipes);
 
     return of(recipes);
   }

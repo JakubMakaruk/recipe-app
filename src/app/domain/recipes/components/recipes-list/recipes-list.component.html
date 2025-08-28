@@ -11,7 +11,10 @@
 
   <div class="recipes__wrapper">
     @for (recipe of recipes(); track recipe.id) {
-      <app-recipes-list-item [recipe]="recipe" />
+      <app-recipes-list-item
+        [recipe]="recipe"
+        (navigateToDetails)="navigateToRecipeDetails(recipe)"
+      />
     }
   </div>
 </div>
